@@ -1,35 +1,42 @@
+//--- Modal Interaction ---\\
+// Sélectionne la modale, le bouton d'ouverture et le bouton de fermeture
 const modal = document.getElementById('restaurant-modal');
 const openButton = document.getElementById('button-modal');
 const closeButton = document.getElementById('close-modal');
 
-// Fonction pour ouvrir la modale
+//--- Fonction pour ouvrir la modale ---\\
+// Affiche la modale et désactive le scroll de la page principale
 function openModal() {
     modal.style.visibility = 'visible';
     document.body.classList.add('modal-open'); // Désactiver le scroll du body
-    generateForm(); // Générer le formulaire au moment de l'ouverture
+    generateForm(); // Générer dynamiquement le formulaire lorsque la modale s'ouvre
 }
 
-// Fonction pour fermer la modale
+//--- Fonction pour fermer la modale ---\\
+// Cache la modale et réactive le scroll de la page principale
 function closeModal() {
     modal.style.visibility = 'hidden';
+    document.body.classList.remove('modal-open'); // Réactiver le scroll du body à chaque fermeture
 }
 
-// Ajout des événements d'ouverture et de fermeture de la modale
+//--- Ajout des événements d'ouverture et de fermeture de la modale ---\\
+// Ajoute des écouteurs d'événements sur les boutons pour ouvrir et fermer la modale
 openButton.addEventListener('click', openModal);
 closeButton.addEventListener('click', closeModal);
 
-// Fonction pour générer dynamiquement le formulaire de réservation
+//--- Génération dynamique du formulaire de réservation ---\\
+// Cette fonction crée et insère un formulaire à l'intérieur de la modale si cela n'a pas déjà été fait
 function generateForm() {
     const formContainer = document.querySelector('.modal-container');
 
-    // Si le formulaire a déjà été généré, ne pas le recréer
+    // Si le formulaire existe déjà, ne pas le recréer
     if (document.getElementById('reservation-form')) return;
 
-    // Créer l'élément formulaire
+    // Créer le formulaire et le remplir avec les champs nécessaires
     const form = document.createElement('form');
     form.id = 'reservation-form';
 
-    // Générer les champs du formulaire avec les validations appropriées
+    // --- Contenu du formulaire --- \\
     form.innerHTML = `
         <div>
             <label for="nom">Nom:</label>
@@ -76,10 +83,11 @@ function generateForm() {
         </div>
     `;
 
-    // Ajouter le formulaire au conteneur de la modale
+    // Ajouter le formulaire dans la modale
     formContainer.appendChild(form);
 
-    // Définir les contraintes de date (date actuelle et 3 mois dans le futur)
+    //--- Contrainte de date ---\\
+    // Définit les dates valides : aujourd'hui et jusqu'à 3 mois dans le futur
     const today = new Date();
     const maxDate = new Date();
     maxDate.setMonth(today.getMonth() + 3);
@@ -87,11 +95,11 @@ function generateForm() {
     document.getElementById('date').min = today.toISOString().split('T')[0];
     document.getElementById('date').max = maxDate.toISOString().split('T')[0];
 
-    // Gérer la soumission du formulaire avec validation côté client
+    //--- Validation du formulaire lors de la soumission ---\\
     form.addEventListener('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Empêche le rechargement de la page
 
-        // Validation manuelle supplémentaire si nécessaire
+        // Récupérer et valider les valeurs des champs
         const nom = document.getElementById('nom').value.trim();
         const prenom = document.getElementById('prenom').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -103,7 +111,7 @@ function generateForm() {
             alert('Veuillez remplir correctement tous les champs avant de soumettre.');
         } else {
             alert('Formulaire soumis avec succès!');
-            closeModal(); // Fermer la modale après soumission
+            closeModal(); // Fermer la modale après la soumission
         }
     });
 }
