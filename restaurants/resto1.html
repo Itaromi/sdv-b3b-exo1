@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La palette du goût</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" href="/style/config/reset.css">
+    <link rel="stylesheet" href="/style/config/variables.css">
+    <link rel="stylesheet" href="/style/layout.css">
+    <link rel="stylesheet" href="/style/header.css">
+    <link rel="stylesheet" href="/style/components/components.css">
+    <link rel="stylesheet" href="/style/components/forms.css">
+    <link rel="stylesheet" href="/style/components/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
@@ -22,7 +28,7 @@
     </header>
     <main>
       <section class="photo_resto">
-        <img src="/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.avif" alt=Image d'une spécialité de La palette du goût">
+        <img src="/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.avif" alt="Image d'une spécialité de La palette du goût">
       </section>
       <section class="resto-main">
         <div class="resto-header">
@@ -34,6 +40,13 @@
               <i class="fa-regular fa-heart"></i>
             </label>
           </div>
+        </div>
+        <button id="button-modal">Réserver</button>
+        <div id="restaurant-modal">
+            <div class="modal-container">
+                <button id="close-modal">X</button>
+                <h2>Réserver</h2>
+            </div>
         </div>
         <form class="menu-form" method="GET" action="#">
           <div class="menu-section">
@@ -217,17 +230,11 @@
             </div>
           </div>
           <div class="form-submit">
-            <input id="buttonCommander" class="button" type="submit" value="Commander">
+            <input class="button" type="submit" value="Commander">
           </div>
         </form>
       </section>
     </main>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Voici la modal ouverte avec succès !</p>
-      </div>
-    </div>
-    <script src="/index.js"></script>
+    <script src="../index.js"></script>
   </body>
 </html>

@@ -1,0 +1,73 @@
+header {
+
+    div:nth-child(1) {
+        position: relative;
+        height: 63px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        z-index: 200;
+
+        #main-logo {
+            font-family: var(--font-title);
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+    }
+
+    div:nth-child(2) {
+        position: relative;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 17px;
+        background-color: #EAEAEA;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        color: #353535;
+        z-index: 100;
+
+        i,
+        input {
+            color: #353535;
+        }
+
+        input {
+            width: 108px;
+            background-color: transparent;
+            border: 0;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+
+}
+
+#main-logo {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.headerClass {
+    position: absolute;
+    left: 20px;
+}
+
+.headerClass:hover {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,60 @@
+.button {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 20px;
+    color: #FFFFFF;
+    background-image: var(--color-button-gradient);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    opacity: 90%;
+    background-image: var(--color-button-gradient);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles pour le composant Favoris (cœur cliquable) */
+div.favorite {
+    input {
+        display: none;
+    }
+
+    input+label i {
+        /* position: absolute;
+        right: 25px;
+        bottom: 22px; */
+        font-size: 30px;
+        cursor: pointer;
+
+        &.fa-solid {
+            color: transparent;
+            background: linear-gradient(to top, #9356dc, #b35cdc, #cf64dc, #e86edb, #ff79da);
+            background-clip: text;
+        }
+    }
+
+    input:checked+label {
+        i.fa-regular {
+            display: none;
+        }
+
+        i.fa-solid {
+            display: inline;
+        }
+    }
+
+    input:not(:checked)+label {
+        i.fa-regular {
+            display: inline;
+        }
+
+        i.fa-solid {
+            display: none;
+        }
+    }
+}

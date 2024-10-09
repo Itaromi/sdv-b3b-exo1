@@ -1,0 +1,13 @@
+:root {
+    --color-grey-light: #F6F6F6;
+    --color-grey-dark: #353535;
+    --color-green-light: #99E2D0;
+    --color-green-dark: #008766;
+    --color-pink-light: #FF79DA;
+    --color-purple-light: #9356DC;
+    --color-button-gradient: linear-gradient(to top, #9356dc, #ff79da);
+    --color-background: var(--color-grey-light);
+
+    --font-default: "Roboto", sans-serif;
+    --font-title: "Shrikhand", cursive;
+}
